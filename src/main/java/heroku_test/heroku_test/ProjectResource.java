@@ -35,4 +35,22 @@ public class ProjectResource {
         Project saved = projectRepo.save(project);
         return ResponseEntity.ok(saved.getId());
     }
+
+    @PutMapping()
+    private ResponseEntity<Project> update(@RequestBody Project project){
+        Optional<Project> oldProject = projectRepo.findById(project.getId());
+        if(oldProject.isPresent()){
+            projectRepo.save(project);
+            return ResponseEntity.ok(project);
+        }
+        return ResponseEntity.status(404)
+                .build();
+    }
+
+    @DeleteMapping("{id}")
+    private ResponseEntity delete(@PathVariable("id") Long id){
+        projectRepo.deleteById(id);
+        return ResponseEntity.ok()
+                .build();
+    }
 }

@@ -12,15 +12,12 @@ public class Project {
 
     private String name;
     private Date addDate;
-
-    @Lob
-    @Column
-    private byte[] image;
+    private String image;
 
     public Project() {
     }
 
-    public Project(String name, Date addDate, byte[] image) {
+    public Project(String name, Date addDate, String image) {
         this.name = name;
         this.addDate = addDate;
         this.image = image;
@@ -38,7 +35,7 @@ public class Project {
         return addDate;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 }
