@@ -23,8 +23,7 @@ public class ProjectResource {
         return ResponseEntity.ok(allProjects);
     }
 
-    @GetMapping("/{id}")
-    @ResponseBody
+    @GetMapping("{id}")
     private ResponseEntity<Project> read(@PathVariable("id") Long id){
         Optional<Project> project = projectRepo.findById(id);
         return project.map(ResponseEntity::ok)
@@ -32,8 +31,8 @@ public class ProjectResource {
     }
 
     @PostMapping
-    @ResponseBody
-    private ResponseEntity<Long> create(){
-        return ResponseEntity.ok(1L);
+    private ResponseEntity<Long> create(@RequestBody Project project){
+        Project saved = projectRepo.save(project);
+        return ResponseEntity.ok(saved.getId());
     }
 }
