@@ -12,6 +12,9 @@ public class Project {
 
     private String name;
     private Date addDate;
+
+    @Lob
+    @Column
     private String image;
 
     public Project() {
