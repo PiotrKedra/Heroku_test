@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.sql.Blob;
+import java.sql.Date;
 import java.util.List;
 
 @SpringBootApplication
@@ -22,8 +24,9 @@ public class HerokuTestApplication {
     }
 
     @Bean
-    ApplicationRunner applicationRunner(BobRepository bobRepository){
+    ApplicationRunner applicationRunner(BobRepository bobRepository, ProjectRepo projectRepo){
         return args -> {
+            projectRepo.save(new Project("AWS Lambda", new Date(12314555), null));
             bobRepository.save(new Bob("aws", "aws lambdas?"));
             bobRepository.save(new Bob("B.O.B", "Miłosz bob?"));
         };

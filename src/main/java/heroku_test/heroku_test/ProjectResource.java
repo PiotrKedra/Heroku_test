@@ -18,16 +18,22 @@ public class ProjectResource {
     }
 
     @GetMapping
-    private ResponseEntity<Iterable<Project>> getAll(){
+    private ResponseEntity<Iterable<Project>> readAll(){
         Iterable<Project> allProjects = projectRepo.findAll();
         return ResponseEntity.ok(allProjects);
     }
 
     @GetMapping("/{id}")
     @ResponseBody
-    private ResponseEntity<Project> get(@PathVariable("id") Long id){
+    private ResponseEntity<Project> read(@PathVariable("id") Long id){
         Optional<Project> project = projectRepo.findById(id);
         return project.map(ResponseEntity::ok)
                 .orElse(ResponseEntity.status(404).build());
+    }
+
+    @PostMapping
+    @ResponseBody
+    private ResponseEntity<Long> create(){
+        return ResponseEntity.ok(1L);
     }
 }
