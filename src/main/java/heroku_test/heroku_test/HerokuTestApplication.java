@@ -1,8 +1,5 @@
 package heroku_test.heroku_test;
 
-import org.hibernate.SessionFactory;
-import org.hibernate.jpa.HibernateEntityManagerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,9 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.sql.Blob;
 import java.sql.Date;
-import java.util.List;
 
 @SpringBootApplication
 public class HerokuTestApplication {
@@ -32,11 +27,6 @@ public class HerokuTestApplication {
             bobRepository.save(new Bob("aws", "aws lambdas?"));
             bobRepository.save(new Bob("B.O.B", "Miłosz bob?"));
         };
-    }
-
-    @Bean // Need to expose SessionFactory to be able to work with BLOBs
-    public SessionFactory sessionFactory(HibernateEntityManagerFactory hemf) {
-        return hemf.getSessionFactory();
     }
 }
 

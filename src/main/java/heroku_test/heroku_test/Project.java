@@ -1,9 +1,6 @@
 package heroku_test.heroku_test;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.sql.Blob;
+import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
@@ -15,12 +12,15 @@ public class Project {
 
     private String name;
     private Date addDate;
-    private Blob image;
+
+    @Lob
+    @Column
+    private byte[] image;
 
     public Project() {
     }
 
-    public Project(String name, Date addDate, Blob image) {
+    public Project(String name, Date addDate, byte[] image) {
         this.name = name;
         this.addDate = addDate;
         this.image = image;
@@ -38,7 +38,7 @@ public class Project {
         return addDate;
     }
 
-    public Blob getImage() {
+    public byte[] getImage() {
         return image;
     }
 }
