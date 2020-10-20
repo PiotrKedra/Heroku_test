@@ -1,9 +1,6 @@
 package heroku_test.heroku_test.user.dao;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "x_user")
@@ -11,6 +8,7 @@ public class UserEntity {
 
     @Id
     @GeneratedValue
+    @Column(name = "user_id")
     private Long id;
 
     private String email;

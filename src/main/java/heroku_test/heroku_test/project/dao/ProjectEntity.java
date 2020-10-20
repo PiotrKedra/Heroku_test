@@ -1,5 +1,10 @@
 package heroku_test.heroku_test.project.dao;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import heroku_test.heroku_test.user.dao.UserEntity;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -15,6 +20,12 @@ public class ProjectEntity {
     private String name;
     private String description;
     private Date addDate;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private UserEntity user;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "proj_img_id", referencedColumnName = "proj_img_id")
@@ -34,6 +45,10 @@ public class ProjectEntity {
 
     public Date getAddDate() {
         return addDate;
+    }
+
+    public UserEntity getUser() {
+        return user;
     }
 
     public ProjectImageEntity getProjectImage() {
