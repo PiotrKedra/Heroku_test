@@ -21,9 +21,8 @@ public class ProjectResource {
     }
 
     @GetMapping
-    private ResponseEntity<Iterable<ProjectEntity>> readAll(){
-        Iterable<ProjectEntity> allProjects = projectRepo.findAll();
-        return ResponseEntity.ok(allProjects);
+    private String test(){
+        return "DUPA";
     }
 
     @PostMapping
