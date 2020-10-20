@@ -22,7 +22,7 @@ public class ProjectResource {
 
     @GetMapping
     private ResponseEntity<String> test(){
-        return ResponseEntity.ok("DUPA 12");
+        return ResponseEntity.ok("{message: DUPA 12}");
     }
 
     @PostMapping
