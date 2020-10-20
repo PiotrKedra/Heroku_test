@@ -17,7 +17,6 @@ public class UserResource {
     private final UserRepository userRepository;
 
     @Autowired
-
     public UserResource(UserRepository userRepository) {
         this.userRepository = userRepository;
     }

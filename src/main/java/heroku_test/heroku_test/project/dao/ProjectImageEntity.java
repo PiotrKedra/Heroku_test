@@ -8,6 +8,7 @@ public class ProjectImageEntity {
 
     @Id
     @GeneratedValue
+    @Column(name = "proj_img_id")
     private Long id;
 
     private String name;
