@@ -21,13 +21,28 @@ public class ProjectResource {
     }
 
     @GetMapping
-    private ResponseEntity<String> test(){
-        return ResponseEntity.ok("{message: DUPA 12}");
+    private ResponseEntity<Message> test(){
+        return ResponseEntity.ok(new Message("DUPA 12"));
     }
 
     @PostMapping
     private ResponseEntity<Long> saveProjectImage(@RequestParam("imageFile") MultipartFile file){
         Long id = projectImageService.creatProjectImage(file);
         return ResponseEntity.ok(id);
+    }
+}
+
+class Message{
+    private String message;
+
+    public Message() {
+    }
+
+    Message(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }
