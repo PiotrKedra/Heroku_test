@@ -1,6 +1,6 @@
 package heroku_test.heroku_test.project.api;
 
-import heroku_test.heroku_test.ProjectRepository;
+import heroku_test.heroku_test.project.api.dao.ProjectRepository;
 import heroku_test.heroku_test.project.api.dao.ProjectEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;

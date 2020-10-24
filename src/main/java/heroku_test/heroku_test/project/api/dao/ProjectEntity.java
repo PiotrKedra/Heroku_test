@@ -1,7 +1,7 @@
 package heroku_test.heroku_test.project.api.dao;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import heroku_test.heroku_test.user.dao.UserEntity;
+import heroku_test.heroku_test.user.api.dao.UserEntity;
 import lombok.Getter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
