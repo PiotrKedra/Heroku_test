@@ -1,9 +1,12 @@
 package heroku_test.heroku_test.user.dao;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "x_user")
+@Getter
 public class UserEntity {
 
     @Id
@@ -16,23 +19,4 @@ public class UserEntity {
     private String surname;
     private String password;
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public String getPassword() {
-        return password;
-    }
 }

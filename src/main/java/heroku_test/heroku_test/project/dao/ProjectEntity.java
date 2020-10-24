@@ -2,6 +2,7 @@ package heroku_test.heroku_test.project.dao;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import heroku_test.heroku_test.user.dao.UserEntity;
+import lombok.Getter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -10,6 +11,7 @@ import java.sql.Date;
 
 @Entity
 @Table(name = "project")
+@Getter
 public class ProjectEntity {
 
     @Id
@@ -31,27 +33,4 @@ public class ProjectEntity {
     @JoinColumn(name = "proj_img_id", referencedColumnName = "proj_img_id")
     private ProjectImageEntity projectImage;
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Date getAddDate() {
-        return addDate;
-    }
-
-    public UserEntity getUser() {
-        return user;
-    }
-
-    public ProjectImageEntity getProjectImage() {
-        return projectImage;
-    }
 }
