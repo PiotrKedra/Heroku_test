@@ -6,10 +6,12 @@ import heroku_test.heroku_test.project.api.ex.ProjectNotFoudExcpetion;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import static heroku_test.heroku_test.project.controller.ProjectsUrls.*;
+
 @RestController
 @CrossOrigin
 @AllArgsConstructor
-@RequestMapping("projects")
+@RequestMapping(PROJECTS_ROOT)
 public class ProjectResource {
 
     private final ProjectApi projectApi;
@@ -24,8 +26,8 @@ public class ProjectResource {
         return projectApi.create(project);
     }
 
-    @GetMapping("{id}")
-    public ProjectEntity get(@PathVariable(name = "id") Long id) {
+    @GetMapping(PROJECT_ID_MAPPING)
+    public ProjectEntity get(@PathVariable(name = PROJECT_ID) Long id) {
         return projectApi.get(id).orElseThrow(ProjectNotFoudExcpetion::new);
     }
 
