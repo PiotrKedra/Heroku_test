@@ -40,11 +40,11 @@ public class ProjectResource {
         return project.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping
-    private ResponseEntity<Long> saveProjectImage(@RequestParam("imageFile") MultipartFile file){
-        Long id = projectImageService.creatProjectImage(file);
-        return ResponseEntity.ok(id);
-    }
+//    @PostMapping
+//    private ResponseEntity<Long> saveProjectImage(@RequestParam("imageFile") MultipartFile file){
+//        Long id = projectImageService.creatProjectImage(file);
+//        return ResponseEntity.ok(id);
+//    }
 }
 
 class Message{
