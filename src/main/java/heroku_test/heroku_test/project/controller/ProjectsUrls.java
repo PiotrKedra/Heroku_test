@@ -4,6 +4,6 @@ public interface ProjectsUrls {
     String PROJECTS_ROOT = "projects";
     String PROJECT_ID = "id";
     String PROJECT_ID_MAPPING = "{" + PROJECT_ID + "}";
-
+    String TRENDY_PROJECTS = "trendy";
 
 }

@@ -31,6 +31,11 @@ public class ProjectResource {
         return projectApi.get(id).orElseThrow(ProjectNotFoudExcpetion::new);
     }
 
+    @GetMapping(TRENDY_PROJECTS)
+    public Iterable<ProjectEntity> getTrendy(){
+        return projectApi.getTrendyProjects();
+    }
+
 //    @PostMapping
 //    private ResponseEntity<Long> saveProjectImage(@RequestParam("imageFile") MultipartFile file){
 //        Long id = projectImageService.creatProjectImage(file);

@@ -23,6 +23,7 @@ public class UserResource {
 
     @GetMapping(USERS_ID_MAPPING)
     public UserEntity get(@PathVariable(name = USERS_ID) Long id) {
-        return userApi.get(id).orElseThrow(UserNotFoundException::new);
+        return userApi.get(id)
+                .orElseThrow(UserNotFoundException::new);
     }
 }
