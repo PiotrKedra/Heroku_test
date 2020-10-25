@@ -35,7 +35,7 @@ public class ProjectApi {
     }
 
     public Iterable<ProjectEntity> getTrendyProjects(){
-        return projectRepository.getTop3();
+        return projectRepository.findAll();
     }
 
     private Long saveProjectImage(MultipartFile file) {
