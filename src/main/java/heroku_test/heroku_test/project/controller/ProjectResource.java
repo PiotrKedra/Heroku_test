@@ -4,17 +4,22 @@ import heroku_test.heroku_test.project.api.ProjectApi;
 import heroku_test.heroku_test.project.api.dao.ProjectEntity;
 import heroku_test.heroku_test.project.api.ex.ProjectNotFoudExcpetion;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import static heroku_test.heroku_test.project.controller.ProjectsUrls.*;
 
 @RestController
 @CrossOrigin
-@AllArgsConstructor
 @RequestMapping(PROJECTS_ROOT)
 public class ProjectResource {
 
     private final ProjectApi projectApi;
+
+    @Autowired
+    public ProjectResource(ProjectApi projectApi) {
+        this.projectApi = projectApi;
+    }
 
     @GetMapping
     public String test() {
