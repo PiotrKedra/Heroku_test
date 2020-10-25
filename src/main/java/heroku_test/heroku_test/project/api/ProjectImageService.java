@@ -3,6 +3,7 @@ package heroku_test.heroku_test.project.api;
 import heroku_test.heroku_test.project.api.dao.ProjectImageEntity;
 import heroku_test.heroku_test.project.api.dao.ProjectImageRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayOutputStream;
@@ -13,6 +14,7 @@ import java.util.zip.Deflater;
 import java.util.zip.Inflater;
 
 @AllArgsConstructor
+@Component
 class ProjectImageService {
 
     private final ProjectImageRepository projectImageRepository;
