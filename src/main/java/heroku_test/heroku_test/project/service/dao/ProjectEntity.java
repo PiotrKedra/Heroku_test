@@ -1,8 +1,9 @@
-package heroku_test.heroku_test.project.api.dao;
+package heroku_test.heroku_test.project.service.dao;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import heroku_test.heroku_test.user.api.dao.UserEntity;
 import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -12,6 +13,7 @@ import java.sql.Date;
 @Entity
 @Table(name = "project")
 @Getter
+@Setter
 public class ProjectEntity {
 
     @Id

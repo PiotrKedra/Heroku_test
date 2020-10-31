@@ -1,9 +1,9 @@
 package heroku_test.heroku_test.project.controller;
 
 import heroku_test.heroku_test.project.api.ProjectApi;
-import heroku_test.heroku_test.project.api.dao.ProjectEntity;
+import heroku_test.heroku_test.project.api.dto.ProjectDTO;
+import heroku_test.heroku_test.project.service.dao.ProjectEntity;
 import heroku_test.heroku_test.project.api.ex.ProjectNotFoudExcpetion;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +27,7 @@ public class ProjectResource {
     }
 
     @PostMapping
-    public Long create(@RequestBody ProjectEntity project) {
+    public Long create(@RequestBody ProjectDTO project) {
         return projectApi.create(project);
     }
 

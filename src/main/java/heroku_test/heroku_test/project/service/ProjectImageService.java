@@ -1,8 +1,7 @@
-package heroku_test.heroku_test.project.api;
+package heroku_test.heroku_test.project.service;
 
-import heroku_test.heroku_test.project.api.dao.ProjectImageEntity;
-import heroku_test.heroku_test.project.api.dao.ProjectImageRepository;
-import lombok.AllArgsConstructor;
+import heroku_test.heroku_test.project.service.dao.ProjectImageEntity;
+import heroku_test.heroku_test.project.service.dao.ProjectImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,7 +14,7 @@ import java.util.zip.Deflater;
 import java.util.zip.Inflater;
 
 @Component
-class ProjectImageService {
+public class ProjectImageService {
 
     private final ProjectImageRepository projectImageRepository;
 
@@ -24,7 +23,7 @@ class ProjectImageService {
         this.projectImageRepository = projectImageRepository;
     }
 
-    Long creatProjectImage(MultipartFile file) {
+    public Long creatProjectImage(MultipartFile file) {
         try {
             System.out.println("Original Image Byte Size - " + file.getBytes().length);
             ProjectImageEntity img = new ProjectImageEntity(file.getOriginalFilename(), file.getContentType(),
@@ -37,7 +36,7 @@ class ProjectImageService {
         }
     }
 
-    Optional<ProjectImageEntity> getImage(Long id) {
+    public Optional<ProjectImageEntity> getImage(Long id) {
         final Optional<ProjectImageEntity> retrievedImage = projectImageRepository.findById(id);
         return retrievedImage.map(img -> new ProjectImageEntity(img.getName(), img.getType(), decompressBytes(img.getImageBytes())));
     }

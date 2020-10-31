@@ -1,4 +1,4 @@
-package heroku_test.heroku_test.project.api.dao;
+package heroku_test.heroku_test.project.service.dao;
 
 import org.springframework.data.repository.CrudRepository;
 
