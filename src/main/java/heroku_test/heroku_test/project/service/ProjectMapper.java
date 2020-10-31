@@ -2,11 +2,20 @@ package heroku_test.heroku_test.project.service;
 
 import heroku_test.heroku_test.project.api.dto.ProjectDTO;
 import heroku_test.heroku_test.project.service.dao.ProjectEntity;
+import heroku_test.heroku_test.project.service.dao.ProjectImageEntity;
 import heroku_test.heroku_test.user.api.dao.UserEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProjectMapper {
+
+    private final ProjectImageService projectImageService;
+
+    @Autowired
+    public ProjectMapper(ProjectImageService projectImageService) {
+        this.projectImageService = projectImageService;
+    }
 
     ProjectEntity mapToEntity(ProjectDTO dto){
         // TODO: 31.10.2020 create builders
@@ -17,6 +26,8 @@ public class ProjectMapper {
         UserEntity userEntity = new UserEntity();
         userEntity.setId(dto.getUserId());
         entity.setUser(userEntity);
+        ProjectImageEntity projectImageEntity = projectImageService.creatProjectImage(dto.getImg());
+        entity.setProjectImage(projectImageEntity);
         return entity;
     }
 

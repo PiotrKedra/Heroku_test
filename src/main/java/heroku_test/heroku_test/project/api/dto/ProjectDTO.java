@@ -2,6 +2,7 @@ package heroku_test.heroku_test.project.api.dto;
 
 import lombok.Builder;
 import lombok.Getter;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.sql.Date;
 
@@ -13,4 +14,5 @@ public class ProjectDTO {
     private String description;
     private Date addDate;
     private Long userId;
+    private MultipartFile img;
 }

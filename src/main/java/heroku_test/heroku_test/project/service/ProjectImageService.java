@@ -23,13 +23,11 @@ public class ProjectImageService {
         this.projectImageRepository = projectImageRepository;
     }
 
-    public Long creatProjectImage(MultipartFile file) {
+    public ProjectImageEntity creatProjectImage(MultipartFile file) {
         try {
             System.out.println("Original Image Byte Size - " + file.getBytes().length);
-            ProjectImageEntity img = new ProjectImageEntity(file.getOriginalFilename(), file.getContentType(),
+            return new ProjectImageEntity(file.getOriginalFilename(), file.getContentType(),
                     compressBytes(file.getBytes()));
-            ProjectImageEntity projectImage = projectImageRepository.save(img);
-            return projectImage.getId();
         } catch (IOException e) {
             e.printStackTrace();
             return null;
