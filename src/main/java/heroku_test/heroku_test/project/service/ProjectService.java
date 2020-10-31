@@ -23,6 +23,7 @@ public class ProjectService {
     }
 
     public Long create(ProjectDTO projectDTO){
+        System.out.println(projectDTO);
         ProjectEntity entity = projectMapper.mapToEntity(projectDTO);
         ProjectEntity created = projectRepository.save(entity);
         return created.getId();
