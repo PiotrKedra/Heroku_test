@@ -19,4 +19,16 @@ public class ProjectDTO {
     private Date addDate;
     private Long userId;
     private MultipartFile img;
+
+    @Override
+    public String toString() {
+        return "ProjectDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", addDate=" + addDate +
+                ", userId=" + userId +
+                ", img=" + img +
+                '}';
+    }
 }
