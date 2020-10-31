@@ -33,8 +33,8 @@ public class ProjectApi {
         return projectService.create(project);
     }
 
-    public Optional<ProjectEntity> get(Long id) {
-        return projectRepository.findById(id);
+    public Optional<ProjectDTO> get(Long id) {
+        return projectService.get(id);
     }
 
     public Iterable<ProjectEntity> getTrendyProjects(){

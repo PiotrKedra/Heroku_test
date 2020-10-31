@@ -32,7 +32,7 @@ public class ProjectResource {
     }
 
     @GetMapping(PROJECT_ID_MAPPING)
-    public ProjectEntity get(@PathVariable(name = PROJECT_ID) Long id) {
+    public ProjectDTO get(@PathVariable(name = PROJECT_ID) Long id) {
         return projectApi.get(id).orElseThrow(ProjectNotFoudExcpetion::new);
     }
 

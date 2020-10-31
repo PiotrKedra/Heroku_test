@@ -6,6 +6,7 @@ import heroku_test.heroku_test.project.service.dao.ProjectRepository;
 import heroku_test.heroku_test.user.api.dao.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import java.util.Optional;
 
 @Component
 public class ProjectService {
@@ -33,5 +34,20 @@ public class ProjectService {
         userEntity.setId(dto.getUserId());
         entity.setUser(userEntity);
         return entity;
+    }
+
+    public Optional<ProjectDTO> get(Long id){
+        return projectRepository.findById(id)
+                .map(this::mapToDto);
+    }
+
+    private ProjectDTO mapToDto(ProjectEntity entity){
+        return ProjectDTO.builder()
+                .id(entity.getId())
+                .name(entity.getName())
+                .description(entity.getDescription())
+                .addDate(entity.getAddDate())
+                .userId(entity.getUser().getId())
+                .build();
     }
 }
