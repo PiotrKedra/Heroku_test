@@ -29,7 +29,7 @@ public class ProjectResource {
     }
 
     @PostMapping
-    public Long create(@RequestBody ProjectDTO project) {
+    public Long create(@ModelAttribute ProjectDTO project) {
         return projectApi.create(project);
     }
 
