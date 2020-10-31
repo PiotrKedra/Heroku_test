@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -37,8 +38,8 @@ public class ProjectApi {
         return projectService.get(id);
     }
 
-    public Iterable<ProjectEntity> getTrendyProjects(){
-        return projectRepository.findAll();
+    public List<ProjectDTO> getTrendyProjects(){
+        return projectService.getTrendyProjects();
     }
 
     private Long saveProjectImage(MultipartFile file) {

@@ -7,6 +7,8 @@ import heroku_test.heroku_test.project.api.ex.ProjectNotFoudExcpetion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 import static heroku_test.heroku_test.project.controller.ProjectsUrls.*;
 
 @RestController
@@ -37,7 +39,7 @@ public class ProjectResource {
     }
 
     @GetMapping(TRENDY_PROJECTS)
-    public Iterable<ProjectEntity> getTrendy(){
+    public List<ProjectDTO> getTrendy(){
         return projectApi.getTrendyProjects();
     }
 
