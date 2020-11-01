@@ -29,7 +29,7 @@ public class ProjectResource {
         return projectApi.test();
     }
 
-    @PostMapping(consumes = "application/octet-stream")
+    @PostMapping(consumes = {"multipart/form-data", "application/octet-stream"})
     @ResponseBody
     public Long create(@RequestPart("project") ProjectDTO project, @RequestPart("project_img")MultipartFile projectImg) {
         System.out.println(project);
