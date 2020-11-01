@@ -26,7 +26,9 @@ public class ProjectImageService {
 
     byte[] getDecompressedImageEntity(ProjectImageEntity img) {
 //        return new ProjectImageEntity(img.getName(), img.getType(), decompressBytes(img.getImageBytes()));
-        return decompressBytes(img.getImageBytes());
+        if(img!=null)
+            return decompressBytes(img.getImageBytes());
+        return null;
     }
 
     private static byte[] compressBytes(byte[] data) {
