@@ -38,6 +38,18 @@ public class ProjectImageEntity {
         return type;
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
     public byte[] getImageBytes() {
         return imageBytes;
     }

@@ -48,18 +48,6 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>org.springframework.boot</groupId>-->
-        <!--<artifactId>spring-boot-starter-test</artifactId>-->
-        <!--<scope>test</scope>-->
-        <!--<exclusions>-->
-        <!--<exclusion>-->
-        <!--<groupId>org.junit.vintage</groupId>-->
-        <!--<artifactId>junit-vintage-engine</artifactId>-->
-        <!--</exclusion>-->
-        <!--</exclusions>-->
-        <!--</dependency>-->
-
         <!--TESTING-->
         <dependency>
             <groupId>org.spockframework</groupId>
@@ -162,28 +150,6 @@
 
     <reporting>
         <plugins>
-            <!--            <plugin>-->
-            <!--                <groupId>org.apache.maven.plugins</groupId>-->
-            <!--                <artifactId>maven-checkstyle-plugin</artifactId>-->
-            <!--                <version>3.1.1</version>-->
-            <!--                <reportSets>-->
-            <!--                    <reportSet>-->
-            <!--                        <reports>-->
-            <!--                            <report>checkstyle</report>-->
-            <!--                        </reports>-->
-            <!--                    </reportSet>-->
-            <!--                </reportSets>-->
-            <!--                <executions>-->
-            <!--                    <execution>-->
-            <!--                        <id>validate</id>-->
-            <!--                        <phase>validate</phase>-->
-            <!--                        <goals>-->
-            <!--                            <goal>check</goal>-->
-            <!--                        </goals>-->
-            <!--                    </execution>-->
-            <!--                </executions>-->
-            <!--            </plugin>-->
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>

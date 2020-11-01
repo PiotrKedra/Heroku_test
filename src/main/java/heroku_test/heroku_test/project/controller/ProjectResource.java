@@ -31,7 +31,8 @@ public class ProjectResource {
 
     @PostMapping(consumes = {"multipart/form-data", "application/octet-stream"})
     @ResponseBody
-    public Long create(@RequestPart("project") ProjectDTO project, @RequestPart("project_img")MultipartFile projectImg) {
+    public Long create(@RequestPart("project") ProjectDTO project,
+                       @RequestPart("project_img") MultipartFile projectImg) {
         System.out.println(project);
         System.out.println(Objects.nonNull(projectImg));
         return projectApi.create(project, projectImg);
@@ -48,7 +49,7 @@ public class ProjectResource {
     }
 
     @GetMapping(TRENDY_PROJECTS)
-    public List<ProjectDTO> getTrendy(){
+    public List<ProjectDTO> getTrendy() {
         return projectApi.getTrendyProjects();
     }
 
@@ -58,4 +59,3 @@ public class ProjectResource {
 //        return ResponseEntity.ok(id);
 //    }
 }
-
