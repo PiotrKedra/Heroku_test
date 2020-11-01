@@ -2,12 +2,13 @@ package heroku_test.heroku_test.project.controller;
 
 import heroku_test.heroku_test.project.api.ProjectApi;
 import heroku_test.heroku_test.project.api.dto.ProjectDTO;
-import heroku_test.heroku_test.project.service.dao.ProjectEntity;
 import heroku_test.heroku_test.project.api.ex.ProjectNotFoudExcpetion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Objects;
 
 import static heroku_test.heroku_test.project.controller.ProjectsUrls.*;
 
@@ -28,9 +29,13 @@ public class ProjectResource {
         return projectApi.test();
     }
 
-    @PostMapping
-    public Long create(@ModelAttribute ProjectDTO project) {
-        return projectApi.create(project);
+    @PostMapping(consumes = {"multipart/form-data"})
+    @ResponseBody
+    public Long create(@RequestPart("project") ProjectDTO project, @RequestPart("project_img")MultipartFile projectImg) {
+        System.out.println(project);
+        System.out.println(Objects.nonNull(projectImg));
+//        return projectApi.create(project);
+        return 12L;
     }
 
     @GetMapping(PROJECT_ID_MAPPING)
