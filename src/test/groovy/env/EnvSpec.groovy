@@ -8,4 +8,9 @@ class EnvSpec extends Specification {
         expect:
         1 + 1 == 2
     }
+
+    def "should fail test"() {
+        expect:
+        1 + 1 == 1
+    }
 }
