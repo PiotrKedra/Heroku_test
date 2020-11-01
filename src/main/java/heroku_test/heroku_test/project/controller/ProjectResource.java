@@ -42,6 +42,11 @@ public class ProjectResource {
         return projectApi.get(id).orElseThrow(ProjectNotFoudExcpetion::new);
     }
 
+    @DeleteMapping(PROJECT_ID_MAPPING)
+    public void delete(@PathVariable(name = PROJECT_ID) Long id){
+        projectApi.delete(id);
+    }
+
     @GetMapping(TRENDY_PROJECTS)
     public List<ProjectDTO> getTrendy(){
         return projectApi.getTrendyProjects();

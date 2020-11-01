@@ -35,6 +35,10 @@ public class ProjectService {
                 .map(projectMapper::mapToDto);
     }
 
+    public void delete(Long id){
+        projectRepository.deleteById(id);
+    }
+
     public List<ProjectDTO> getTrendyProjects(){
         List<ProjectEntity> trendy = projectRepository.findTrendyProjects();
         return trendy.stream()

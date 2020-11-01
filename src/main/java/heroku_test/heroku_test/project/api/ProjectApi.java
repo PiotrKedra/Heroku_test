@@ -31,6 +31,10 @@ public class ProjectApi {
         return projectService.get(id);
     }
 
+    public void delete(Long id){
+        projectService.delete(id);
+    }
+
     public List<ProjectDTO> getTrendyProjects(){
         return projectService.getTrendyProjects();
     }
