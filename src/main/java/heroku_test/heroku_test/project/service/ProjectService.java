@@ -5,6 +5,7 @@ import heroku_test.heroku_test.project.service.dao.ProjectEntity;
 import heroku_test.heroku_test.project.service.dao.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,9 +23,9 @@ public class ProjectService {
         this.projectMapper = projectMapper;
     }
 
-    public Long create(ProjectDTO projectDTO){
+    public Long create(ProjectDTO projectDTO, MultipartFile projectImg){
         System.out.println(projectDTO);
-        ProjectEntity entity = projectMapper.mapToEntity(projectDTO);
+        ProjectEntity entity = projectMapper.mapToEntity(projectDTO, projectImg);
         ProjectEntity created = projectRepository.save(entity);
         return created.getId();
     }

@@ -6,6 +6,7 @@ import heroku_test.heroku_test.project.service.dao.ProjectImageEntity;
 import heroku_test.heroku_test.user.api.dao.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Component
 public class ProjectMapper {
@@ -17,7 +18,7 @@ public class ProjectMapper {
         this.projectImageService = projectImageService;
     }
 
-    ProjectEntity mapToEntity(ProjectDTO dto){
+    ProjectEntity mapToEntity(ProjectDTO dto, MultipartFile projectImg){
         // TODO: 31.10.2020 create builders
         ProjectEntity entity = new ProjectEntity();
         entity.setName(dto.getName());
@@ -26,7 +27,7 @@ public class ProjectMapper {
         UserEntity userEntity = new UserEntity();
         userEntity.setId(dto.getUserId());
         entity.setUser(userEntity);
-        ProjectImageEntity projectImageEntity = projectImageService.creatProjectImage(dto.getImg());
+        ProjectImageEntity projectImageEntity = projectImageService.getCompressedImageEntity(projectImg);
         entity.setProjectImage(projectImageEntity);
         return entity;
     }
@@ -38,6 +39,7 @@ public class ProjectMapper {
                 .description(entity.getDescription())
                 .addDate(entity.getAddDate())
                 .userId(entity.getUser().getId())
+                .img(projectImageService.getDecompressedImageEntity(entity.getProjectImage()))
                 .build();
     }
 }

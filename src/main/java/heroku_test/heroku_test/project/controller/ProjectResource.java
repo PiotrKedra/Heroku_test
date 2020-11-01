@@ -34,8 +34,7 @@ public class ProjectResource {
     public Long create(@RequestPart("project") ProjectDTO project, @RequestPart("project_img")MultipartFile projectImg) {
         System.out.println(project);
         System.out.println(Objects.nonNull(projectImg));
-//        return projectApi.create(project);
-        return 12L;
+        return projectApi.create(project, projectImg);
     }
 
     @GetMapping(PROJECT_ID_MAPPING)
@@ -50,7 +49,7 @@ public class ProjectResource {
 
 //    @PostMapping
 //    private ResponseEntity<Long> saveProjectImage(@RequestParam("imageFile") MultipartFile file){
-//        Long id = projectImageService.creatProjectImage(file);
+//        Long id = projectImageService.getCompressedImageEntity(file);
 //        return ResponseEntity.ok(id);
 //    }
 }

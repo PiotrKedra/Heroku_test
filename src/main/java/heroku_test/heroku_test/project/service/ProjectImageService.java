@@ -1,14 +1,11 @@
 package heroku_test.heroku_test.project.service;
 
 import heroku_test.heroku_test.project.service.dao.ProjectImageEntity;
-import heroku_test.heroku_test.project.service.dao.ProjectImageRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.Optional;
 import java.util.zip.DataFormatException;
 import java.util.zip.Deflater;
 import java.util.zip.Inflater;
@@ -16,14 +13,7 @@ import java.util.zip.Inflater;
 @Component
 public class ProjectImageService {
 
-    private final ProjectImageRepository projectImageRepository;
-
-    @Autowired
-    public ProjectImageService(ProjectImageRepository projectImageRepository) {
-        this.projectImageRepository = projectImageRepository;
-    }
-
-    public ProjectImageEntity creatProjectImage(MultipartFile file) {
+    ProjectImageEntity getCompressedImageEntity(MultipartFile file) {
         try {
             System.out.println("Original Image Byte Size - " + file.getBytes().length);
             return new ProjectImageEntity(file.getOriginalFilename(), file.getContentType(),
@@ -34,9 +24,9 @@ public class ProjectImageService {
         }
     }
 
-    public Optional<ProjectImageEntity> getImage(Long id) {
-        final Optional<ProjectImageEntity> retrievedImage = projectImageRepository.findById(id);
-        return retrievedImage.map(img -> new ProjectImageEntity(img.getName(), img.getType(), decompressBytes(img.getImageBytes())));
+    byte[] getDecompressedImageEntity(ProjectImageEntity img) {
+//        return new ProjectImageEntity(img.getName(), img.getType(), decompressBytes(img.getImageBytes()));
+        return decompressBytes(img.getImageBytes());
     }
 
     private static byte[] compressBytes(byte[] data) {
